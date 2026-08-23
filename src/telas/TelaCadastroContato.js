@@ -10,7 +10,7 @@ import {
 
 import { Ionicons } from '@expo/vector-icons';
 
-export default function TelaEdicaoContato({ navigation }) {
+export default function TelaCadastroContato({ navigation }) {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');

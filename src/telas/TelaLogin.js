@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { 
-  StyleSheet, 
-  Text, 
-  TextInput, 
+import {
+  StyleSheet,
+  Text,
+  TextInput,
   View,
-  TouchableOpacity, 
+  TouchableOpacity,
 } from 'react-native';
 
 import { Ionicons } from '@expo/vector-icons';
@@ -19,15 +19,15 @@ export default function TelaLogin({ navigation }) {
     <View style={styles.container}>
 
       <View style={styles.caixaLogin}>
-        
+
         <Ionicons
           name="person-circle-outline"
           size={150}
           color="##333333"
           style={styles.icone}
         />
-        
-        <Text style={styles.titulo}Login>Login</Text>
+
+        <Text style={styles.titulo} Login>Login</Text>
         <TextInput
           style={styles.input}
           placeholder="Digite seu login..."
@@ -35,7 +35,7 @@ export default function TelaLogin({ navigation }) {
           onChangeText={setLogin}
         />
 
-        <Text style={styles.titulo}Login>Senha</Text>
+        <Text style={styles.titulo} Login>Senha</Text>
         <TextInput
           style={styles.input}
           placeholder="Digite sua senha..."
@@ -43,17 +43,15 @@ export default function TelaLogin({ navigation }) {
           onChangeText={setSenha}
         />
 
-
-
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.botao}
           onPress={() => navigation.navigate('TelaListaContatos')}
         >
           <Text style={styles.textoBotao}>Login</Text>
         </TouchableOpacity>
 
-        
-        <TouchableOpacity 
+
+        <TouchableOpacity
           style={styles.botaoCadastro}
           onPress={() => navigation.navigate('TelaCadastroUsuario')}
         >
@@ -61,10 +59,13 @@ export default function TelaLogin({ navigation }) {
         </TouchableOpacity>
 
 
+        <TouchableOpacity
+          onPress={() => navigation.navigate('TelaEsqueceuSenha')}
+        >
+          <Text style={styles.textoSenha}>esqueceu a senha?</Text>
+        </TouchableOpacity>
 
       </View>
-      
-
 
       <StatusBar style="auto" />
     </View>
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
   },
 
   caixaLogin: {
-    width:'85%',
+    width: '85%',
     alignItems: 'center',
   },
 
@@ -95,11 +96,11 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 
-  input: { 
+  input: {
     width: '100%',
-    height: 45, 
-    borderColor: 'gray', 
-    borderWidth: 1, 
+    height: 45,
+    borderColor: 'gray',
+    borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 12,
     fontSize: 16,
@@ -123,6 +124,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
+  textoSenha: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#007AFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginTop: 30,
+  },
+
   botaoCadastro: {
     width: '100%',
     height: 45,
@@ -133,6 +143,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-
-      
