@@ -85,7 +85,39 @@ export default function TelaListaContatos({ navigation }) {
                     />
                     <View style={styles.informacoes}>
                         <Text style={styles.nome}>Rodrigo Antunes</Text>
-                        <Text style={styles.nome}>81 987765525</Text>
+                        <Text style={styles.nome}>81 983520684</Text>
+                    </View>
+                </View>
+            </TouchableOpacity>
+
+             <TouchableOpacity
+                onPress={() => navigation.navigate('TelaEdicaoContatos')}
+            >
+                <View style={styles.contato}>
+                    <Ionicons
+                        name="person-circle-outline"
+                        size={50}
+                        color="#007AFF"
+                    />
+                    <View style={styles.informacoes}>
+                        <Text style={styles.nome}>Fernando Souza</Text>
+                        <Text style={styles.nome}>81 936775219</Text>
+                    </View>
+                </View>
+            </TouchableOpacity>
+
+             <TouchableOpacity
+                onPress={() => navigation.navigate('TelaEdicaoContatos')}
+            >
+                <View style={styles.contato}>
+                    <Ionicons
+                        name="person-circle-outline"
+                        size={50}
+                        color="#007AFF"
+                    />
+                    <View style={styles.informacoes}>
+                        <Text style={styles.nome}>Felipe Costa</Text>
+                        <Text style={styles.nome}>81 975941123</Text>
                     </View>
                 </View>
             </TouchableOpacity>
