@@ -13,7 +13,7 @@ import { Ionicons } from '@expo/vector-icons';
 export default function TelaCadastroContato({ navigation }) {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+  const [telefone, setTelefone] = useState('');
 
   return (
     <View style={styles.container}>
@@ -23,14 +23,10 @@ export default function TelaCadastroContato({ navigation }) {
           style={styles.botaoVoltar}
           onPress={() => navigation.navigate('TelaListaContatos')}
         >
-          <Ionicons
-            name="arrow-back"
-            size={30}
-            color="#fff"
-          />
+          <Ionicons name="arrow-back" size={30} color="#fff" />
         </TouchableOpacity>
         <Text style={styles.tituloPrincipal}>
-          Contato
+          Cadastro de Contato
         </Text>
       </View>
 
@@ -55,13 +51,13 @@ export default function TelaCadastroContato({ navigation }) {
           onChangeText={setEmail}
         />
 
-        {/* Senha */}
-        <Text style={styles.titulo}>Senha</Text>
+        {/* Telefone */}
+        <Text style={styles.titulo}>Telefone</Text>
         <TextInput
           style={styles.input}
-          placeholder="Digite sua senha..."
-          value={senha}
-          onChangeText={setSenha}
+          placeholder="Digite seu telefone..."
+          value={telefone}
+          onChangeText={setTelefone}
         />
 
         <TouchableOpacity

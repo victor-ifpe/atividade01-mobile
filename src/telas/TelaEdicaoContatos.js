@@ -1,44 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  TouchableOpacity,
-} from 'react-native';
-
+import { StyleSheet, Text, TextInput, View, TouchableOpacity} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function TelaEdicaoContatos({ navigation }) {
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+export default function TelaEdicaoContatos({ navigation, route }) {
+
+  const { nome: nomeInicial, telefone: telefoneInicial } = route.params;
+  const [nome, setNome] = useState(nomeInicial);
+  const [telefone, setTelefone] = useState(telefoneInicial);
+
 
   return (
     <View style={styles.container}>
-
       <View style={styles.cabecalho}>
         <TouchableOpacity
           style={styles.botaoVoltar}
           onPress={() => navigation.navigate('TelaListaContatos')}
         >
-          <Ionicons
-            name="arrow-back"
-            size={30}
-            color="#fff"
-          />
+          <Ionicons name="arrow-back" size={30} color="#fff" />
         </TouchableOpacity>
+
         <Text style={styles.tituloPrincipal}>
-          Contato
+          Edição de Contato
         </Text>
       </View>
 
-
       <View style={styles.caixaLogin}>
-
         {/* Nome */}
-        <Text style={styles.titulo}>Nome</Text>
+        <Text style={styles.titulo}>
+          Nome
+        </Text>
         <TextInput
           style={styles.input}
           placeholder="Digite seu nome..."
@@ -46,44 +37,49 @@ export default function TelaEdicaoContatos({ navigation }) {
           onChangeText={setNome}
         />
 
-        {/* Email */}
-        <Text style={styles.titulo}>Email</Text>
+        {/* Telefone */}
+        <Text style={styles.titulo}>
+          Telefone
+        </Text>
+
         <TextInput
           style={styles.input}
-          placeholder="Digite seu email..."
-          value={email}
-          onChangeText={setEmail}
+          placeholder="Digite seu telefone..."
+          value={telefone}
+          onChangeText={setTelefone}
         />
 
-        {/* Senha */}
-        <Text style={styles.titulo}>Senha</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Digite sua senha..."
-          value={senha}
-          onChangeText={setSenha}
-        />
-
+        {/* Botões */}
         <TouchableOpacity
           style={styles.botaoAlterar}
+          onPress={() => {
+            console.log('Novo nome:', nome);
+            console.log('Novo telefone:', telefone);
+          }}
         >
-          <Text style={styles.textoBotao}>Alterar</Text>
+          <Text style={styles.textoBotao}>
+            Alterar
+          </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.botaoExcluir}
+          onPress={() => navigation.navigate('TelaListaContatos')}
         >
-          <Text style={styles.textoBotao}>Excluir</Text>
+          <Text style={styles.textoBotao}>
+            Excluir
+          </Text>
         </TouchableOpacity>
 
       </View>
-
       <StatusBar style="auto" />
     </View>
   );
 }
 
+
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#fff',
